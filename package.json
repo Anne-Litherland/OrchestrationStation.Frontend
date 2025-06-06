@@ -1,5 +1,5 @@
 {
-  "name": "orchestration-station",
+  "name": "orchestrationstation",
   "type": "module",
   "scripts": {
     "dev": "vite",
