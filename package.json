@@ -1,5 +1,5 @@
 {
-  "name": "foobar",
+  "name": "orchestration-station",
   "type": "module",
   "scripts": {
     "dev": "vite",
