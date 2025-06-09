@@ -22,7 +22,9 @@ export default function InstrumentsPage() {
           {error && <output>{error}</output>}
         </form>
       ) : (
-        <Link to="/register">Sign up to send us a message!</Link>
+        <Link to="/register" id="link">
+          Sign up to send us a message!
+        </Link>
       )}
     </main>
   );
