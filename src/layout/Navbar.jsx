@@ -6,10 +6,15 @@ export default function Navbar() {
   return (
     <header id="navbar">
       <NavLink id="brand" to="/instruments">
-        <p>Orchestration Station</p>
+        <img
+          src="steam-locomotive-train-vintage-style.png"
+          alt="train logo"
+          width="100px"
+        />
+        <h1>Orchestration Station</h1>
       </NavLink>
       <nav>
-        <NavLink to="/instruments">Indivisual Instruments</NavLink>
+        <NavLink to="/instruments">Individual Instruments</NavLink>
         <NavLink to="/bibliography">Bibliography</NavLink>
         {token ? (
           <>
@@ -18,6 +23,7 @@ export default function Navbar() {
           </>
         ) : (
           <>
+            <NavLink to="/register">Register</NavLink>
             <NavLink to="/login">Login</NavLink>
           </>
         )}
