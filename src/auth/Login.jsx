@@ -23,7 +23,7 @@ export default function Login() {
 
   return (
     <>
-      <h1>Log in to your account</h1>
+      <h2>Log in to your account</h2>
       <form action={onLogin}>
         <label>
           Username
@@ -36,7 +36,9 @@ export default function Login() {
         <button>Login</button>
         {error && <output>{error}</output>}
       </form>
-      <Link to="/register">Need an account? Register here.</Link>
+      <Link to="/register" id="link">
+        Need an account? Register here.
+      </Link>
     </>
   );
 }

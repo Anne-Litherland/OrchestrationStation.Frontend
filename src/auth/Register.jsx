@@ -23,7 +23,7 @@ export default function Register() {
 
   return (
     <>
-      <h1>Register for an account</h1>
+      <h2>Register for an account</h2>
       <form action={onRegister}>
         <label>
           Username
@@ -36,7 +36,9 @@ export default function Register() {
         <button>Register</button>
         {error && <output>{error}</output>}
       </form>
-      <Link to="/login">Already have an account? Log in here.</Link>
+      <Link to="/login" id="link">
+        Already have an account? Log in here.
+      </Link>
     </>
   );
 }

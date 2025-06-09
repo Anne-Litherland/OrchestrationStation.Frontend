@@ -9,7 +9,7 @@ export default function InstrumentsPage() {
       <h1>Catalog</h1>
       <InstrumentsList />
       {token ? (
-        <form action={onSubmit}>
+        <form>
           <label>
             Username
             <input type="text" name="username" />

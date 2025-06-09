@@ -35,10 +35,11 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f9f9f9;
-  color: #333;
+  color: #092f36;
 }
 #brand {
   display: flex;
+  text-decoration: none;
 }
 
 header {
@@ -58,16 +59,22 @@ header h1 {
   font-family: copperplate;
 }
 
-header h1 img {
-  height: 30px;
-  margin-right: 10px;
+header img {
+  height: 10ch;
+  width: 15ch;
 }
 
 nav a:hover {
   cursor: pointer;
   text-decoration: underline;
 }
+
 main {
   display: grid;
+  text-align: center;
   gap: 0.25rem;
+}
+
+#link {
+  color: #006093;
 }

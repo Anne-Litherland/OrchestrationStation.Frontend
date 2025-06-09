@@ -6,11 +6,7 @@ export default function Navbar() {
   return (
     <header id="navbar">
       <NavLink id="brand" to="/instruments">
-        <img
-          src="steam-locomotive-train-vintage-style.png"
-          alt="train logo"
-          width="100px"
-        />
+        <img src="steam-locomotive-train-vintage-style.png" alt="train logo" />
         <h1>Orchestration Station</h1>
       </NavLink>
       <nav>
