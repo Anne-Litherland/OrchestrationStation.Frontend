@@ -78,3 +78,8 @@ main {
 #link {
   color: #006093;
 }
+
+#textbox {
+  width: 50ch;
+  height: 150px;
+}

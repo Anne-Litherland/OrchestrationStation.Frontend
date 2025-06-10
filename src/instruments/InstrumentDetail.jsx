@@ -3,7 +3,7 @@ import useQuery from "../api/useQuery";
 import useMutation from "../api/useMutation";
 import { useAuth } from "../auth/AuthContext";
 
-export default function BookDetail() {
+export default function InstrumentDetail() {
   const { id } = useParams();
   const { token } = useAuth();
 
