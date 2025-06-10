@@ -12,7 +12,7 @@ export default function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
-        <Route index element={<p>Home page</p>} />
+        <Route index element={<InstrumentsPage />} />
         <Route path="/instruments" element={<InstrumentsPage />} />
         <Route path="/account" element={<Account />} />
         <Route path="/instruments/:id" element={<InstrumentsDetail />} />
