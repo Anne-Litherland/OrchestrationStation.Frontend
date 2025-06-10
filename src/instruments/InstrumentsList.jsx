@@ -22,7 +22,7 @@ export default function InstrumentsList() {
 
 function InstrumentListItem({ instrument }) {
   return (
-    <li className="instrument">
+    <li className="instrument" style={{ left: xPos, top: yPos }}>
       <figure className="center-children">
         <img src={instrument.coverimage} alt={instrument.title} />
       </figure>
