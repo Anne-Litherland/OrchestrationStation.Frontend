@@ -117,11 +117,3 @@ img {
   grid-column: 3 / 4;
   grid-row: 2 / 3;
 }
-
-footer {
-  position: fixed;
-  bottom: 0;
-  height: 25px;
-  width: 85%;
-  background-color: #fff;
-}
