@@ -3,7 +3,7 @@ import useQuery from "../api/useQuery";
 import useMutation from "../api/useMutation";
 import { useAuth } from "../auth/AuthContext";
 
-export default function BookDetail() {
+export default function InstrumentsDetail() {
   const { id } = useParams();
   const { token } = useAuth();
 
@@ -18,38 +18,41 @@ export default function BookDetail() {
   return (
     <>
       <section className="info">
-        <h1>{instrumentData?.title || "Unnamed Instrumanet"}</h1>
+        <h1>{instrumentData?.instrument_name || "Unnamed Instrumanet"}</h1>
         <p>Range: {instrumentData?.range || "Unknown"}</p>
         <p>{instrumentData?.description || "No description available."}</p>
         <figure>
-          <img src={instrumentData?.coverimage} alt={instrumentData?.title} />
+          <img
+            src={instrumentData?.image_url}
+            alt={instrumentData?.instrument_name}
+          />
         </figure>
       </section>
       <section className="info">
-        <h1>{instrumentData?.excerpts_solo || "Unnamed Instrumanet"}</h1>
+        <h1>{instrumentData?.famous_excerpts || "Unnamed Instrumanet"}</h1>
         <p>Famous Musician: {instrumentData?.famous_musicians || "Unknown"}</p>
         <p>{instrumentData?.history || "No history available."}</p>
       </section>
       {token && (
         <section className="button">
-          <AddToFavorite id={instrumentData.id} />
+          <AddToFavorite instrumentId={instrumentData?.id} />
         </section>
       )}
     </>
   );
 }
 
-function AddToFavorite({ id }) {
+function AddToFavorite({ instrumentId }) {
   const navigate = useNavigate();
   const {
     mutate: likeInstrument,
     loading: adding,
     error: addError,
-  } = useMutation("post", "/favorite_instrument", ["instrument", id]);
+  } = useMutation("post", `/instruments/${instrumentId}/favorite`, ["me"]);
 
   const onLikeInstrument = async () => {
     try {
-      await likeInstrument({ Id: id });
+      await likeInstrument({ instrumentId });
       navigate("/account");
     } catch (err) {
       console.error("failed:", err);
@@ -57,9 +60,11 @@ function AddToFavorite({ id }) {
   };
 
   return (
-    <button onClick={onLikeInstrument} disabled={adding}>
-      {adding ? "..." : "Add To Favorite"}
+    <>
+      <button onClick={onLikeInstrument} disabled={adding}>
+        {adding ? "..." : "Add To Favorite"}
+      </button>
       {addError && <p>{addError}</p>}
-    </button>
+    </>
   );
 }

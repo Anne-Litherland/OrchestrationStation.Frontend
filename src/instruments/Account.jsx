@@ -3,7 +3,7 @@ import useQuery from "../api/useQuery";
 import { Link } from "react-router";
 
 export default function Account() {
-  const { data: userData, error, loading } = useQuery("/users/me", "me");
+  const { data: userData, error, loading } = useQuery("/account", "me");
 
   const isFavorite = userData?.favorites.length > 0;
 
@@ -13,13 +13,17 @@ export default function Account() {
   return (
     <>
       <h1>Welcome, {userData.username}!</h1>
-      <p>Your email on file with us is {userData?.email}.</p>
-      <h2>Your reservations</h2>
+      <p>Your email on file with us is {userData.username}.</p>
+      <h2>Your favorites</h2>
       {isFavorite ? (
         <ul>
           {userData.favorites.map((instrument) => (
             <li key={instrument.id}>
-              <strong>{instrument.title}</strong>
+              <strong>{instrument.instrument_name}</strong>
+                <img
+                  src={instrument.image_url}
+                  alt={instrument.instrument_name}
+                ></img>
               <Return id={instrument.id} />
             </li>
           ))}
@@ -35,13 +39,13 @@ export default function Account() {
 }
 function Return({ id }) {
   const {
-    mutate: notinterestedInstrument,
+    mutate: removeFvorite,
     error,
     loading,
-  } = useMutation("DELETE", "/favorites/" + id, ["users", "me"]);
+  } = useMutation("DELETE", `/favorites/${id}`, ["me"]);
 
   return (
-    <button onClick={() => notinterestedInstrument()}>
+    <button onClick={() => removeFvorite()}>
       {loading ? "Deleting" : error ?? "Not Interested Instrument"}
     </button>
   );
