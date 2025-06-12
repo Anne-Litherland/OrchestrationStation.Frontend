@@ -9,7 +9,7 @@ export default function Feedback() {
     const username = formData.get("username");
     const message = formData.get("message");
     try {
-      await submit({ username, message });
+      await onSubmit({ username, message });
       navigate("/");
     } catch (e) {
       setError(e.message);
@@ -24,7 +24,7 @@ export default function Feedback() {
       </label>
       <label>
         Message
-        <input type="text" name="message" required />
+        <input type="text" name="message" id="textbox" required />
       </label>
       <button>Submit</button>
       {error && <output>{error}</output>}
