@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router";
-import { useAuth } from "../auth/AuthContext";
+import { useNavigate } from "react-router";
 
 export default function Feedback() {
   const navigate = useNavigate();
-  const { token } = useAuth();
-
   const [error, setError] = useState(null);
+
   const onSubmit = async (formData) => {
     const username = formData.get("username");
     const message = formData.get("message");
@@ -32,4 +30,18 @@ export default function Feedback() {
       {error && <output>{error}</output>}
     </form>
   );
+}
+async function submit({ username, message }) {
+  const res = await fetch("/api/feedback", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ username, message }),
+  });
+
+  if (!res.ok) {
+    const errorData = await res.json();
+    throw new Error(errorData.message || "Failed to submit feedback.");
+  }
 }

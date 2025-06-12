@@ -24,11 +24,13 @@ function InstrumentListItem({ instrument }) {
   return (
     <li className="instrument">
       <figure className="center-children">
-        <img src={instrument.coverimage} alt={instrument.title} />
+        <img src={instrument.image_url} alt={instrument.instrument_name} />
       </figure>
       <div>
         <h2>
-          <Link to={`/instruments/${instrument.id}`}>{instrument.title}</Link>
+          <Link to={`/instruments/${instrument.id}`}>
+            {instrument.instrument_name}
+          </Link>
         </h2>
       </div>
     </li>
