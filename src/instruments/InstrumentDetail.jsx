@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router";
 import useQuery from "../api/useQuery";
 import useMutation from "../api/useMutation";
 import { useAuth } from "../auth/AuthContext";
+import Comments from "../userInput/Comments";
 
 export default function InstrumentDetail() {
   const { id } = useParams();
@@ -38,6 +39,9 @@ export default function InstrumentDetail() {
           <AddToFavorite instrumentId={instrumentData?.id} />
         </section>
       )}
+      <section>
+        <Comments></Comments>
+      </section>
     </>
   );
 }

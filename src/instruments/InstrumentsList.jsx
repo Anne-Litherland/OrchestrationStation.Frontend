@@ -2,11 +2,8 @@ import useQuery from "../api/useQuery";
 import { Link } from "react-router";
 
 export default function InstrumentsList() {
-  const {
-    data: instruments,
-    loading,
-    error,
-  } = useQuery("/instruments", "instruments");
+  const { loading, error } = useQuery("/instruments", "instruments");
+  const instruments = [];
 
   if (loading || !instruments) return <p>Loading...</p>;
   if (error) return <p>Sorry! {error}</p>;
