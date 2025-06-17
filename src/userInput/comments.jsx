@@ -16,6 +16,13 @@ export default function CommentsList() {
       ) : (
         <p>Be the first to leave a comment!</p>
       )}
+      <form>
+        <label>
+          <input type="text" name="comment" id="comment-box" />
+        </label>
+        <button type="submit">Send</button>
+        {error && <output>{error}</output>}
+      </form>
     </>
   );
 }
