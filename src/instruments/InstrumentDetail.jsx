@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "react-router";
 import useQuery from "../api/useQuery";
 import useMutation from "../api/useMutation";
 import { useAuth } from "../auth/AuthContext";
-import Comments from "../userInput/Comments";
+import CommentsList from "../userInput/CommentsList";
 
 export default function InstrumentDetail() {
   const { id } = useParams();
@@ -40,7 +40,7 @@ export default function InstrumentDetail() {
         </section>
       )}
       <section>
-        <Comments></Comments>
+        <CommentsList></CommentsList>
       </section>
     </>
   );
