@@ -39,9 +39,6 @@ export default function InstrumentDetail() {
           <AddToFavorite instrumentId={instrumentData?.id} />
         </section>
       )}
-      <section>
-        <CommentsList></CommentsList>
-      </section>
     </>
   );
 }

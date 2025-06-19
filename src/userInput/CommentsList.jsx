@@ -1,4 +1,3 @@
-import useMutation from "../api/useMutation";
 import useQuery from "../api/useQuery";
 
 export default function CommentsList() {
