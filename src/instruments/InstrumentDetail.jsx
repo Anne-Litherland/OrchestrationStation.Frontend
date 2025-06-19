@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router";
 import useQuery from "../api/useQuery";
 import useMutation from "../api/useMutation";
 import { useAuth } from "../auth/AuthContext";
+import CommentsList from "../userInput/CommentsList";
 
 export default function InstrumentDetail() {
   const { id } = useParams();
@@ -36,6 +37,11 @@ export default function InstrumentDetail() {
       {token && (
         <section className="button">
           <AddToFavorite instrumentId={instrumentData?.id} />
+        </section>
+      )}
+      {token && (
+        <section>
+          <CommentsList></CommentsList>
         </section>
       )}
     </>

@@ -5,7 +5,9 @@ export default function Feedback() {
   const navigate = useNavigate();
   const [error, setError] = useState(null);
 
-  const onSubmit = async (formData) => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
     const username = formData.get("username");
     const message = formData.get("message");
     try {
@@ -17,16 +19,17 @@ export default function Feedback() {
   };
 
   return (
-    <form action={onSubmit}>
+    <form onSubmit={handleSubmit}>
       <label>
         Username
-        <input type="text" name="username" />
+        <input type="text" name="username" required />
       </label>
+      <br></br>
       <label>
         Message
-        <input type="text" name="message" id="textbox" required />
+        <textarea type="text" name="message" id="textbox" required />
       </label>
-      <button>Submit</button>
+      <button type="submit">Submit</button>
       {error && <output>{error}</output>}
     </form>
   );

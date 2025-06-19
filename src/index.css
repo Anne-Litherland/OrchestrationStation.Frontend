@@ -99,23 +99,34 @@ nav a:hover {
   max-height: 100%;
 }
 
-#textbox {
+textarea {
   width: 50ch;
-  height: 150px;
+  height: 100px;
+}
+
+form {
+  text-align: center;
+  padding-left: 10ch;
 }
 
 #about {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  padding-left: 10ch;
 }
 
 section {
-  grid-column: 2 / 3;
+  grid-column: 2 / 4;
+  text-align: center;
+  padding-bottom: 10ch;
+  padding-right: 5ch;
 }
 
 img {
   width: 1ch;
   height: 18ch;
+  border-radius: 10%;
 }
 
 #img1 {
@@ -124,7 +135,7 @@ img {
 }
 
 #img2 {
-  grid-column: 3 / 4;
+  grid-column: 4;
   grid-row: 1 / 2;
 }
 
@@ -134,6 +145,25 @@ img {
 }
 
 #img4 {
-  grid-column: 3 / 4;
+  grid-column: 4;
   grid-row: 2 / 3;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  background-color: #ddd;
+  color: #ddd;
+  height: 25px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.Error404 {
+  background-image: url("public/photos/music-154332_1280.png");
 }
