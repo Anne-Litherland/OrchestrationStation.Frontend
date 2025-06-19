@@ -9,7 +9,7 @@ export default function Feedback() {
     const username = formData.get("username");
     const message = formData.get("message");
     try {
-      await onSubmit({ username, message });
+      await submit({ username, message });
       navigate("/");
     } catch (e) {
       setError(e.message);
