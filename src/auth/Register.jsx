@@ -13,8 +13,9 @@ export default function Register() {
   const onRegister = async (formData) => {
     const username = formData.get("username");
     const password = formData.get("password");
+    const email = formData.get("email");
     try {
-      await register({ username, password });
+      await register({ username, password, email });
       navigate("/");
     } catch (e) {
       setError(e.message);
@@ -28,6 +29,10 @@ export default function Register() {
         <label>
           Username
           <input type="text" name="username" />
+        </label>
+        <label>
+          Email
+          <input type="text" name="email" />
         </label>
         <label>
           Password
