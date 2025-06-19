@@ -17,7 +17,7 @@ export default function CommentsList() {
       )}
       <form>
         <label>
-          <input type="text" name="comment" id="comment-box" />
+          <textarea type="text" name="comment" id="comment-box" />
         </label>
         <button type="submit">Send</button>
         {error && <output>{error}</output>}
@@ -30,6 +30,8 @@ function Comment({ comment }) {
   return (
     <li className="comment">
       <p>{comment.user_id}</p>
+      <p>{comment.category}</p>
+      <p>{comment.created_at}</p>
       <p>{comment.content}</p>
     </li>
   );

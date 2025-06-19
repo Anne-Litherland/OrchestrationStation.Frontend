@@ -8,6 +8,7 @@ import InstrumentDetail from "./instruments/InstrumentDetail";
 import Error404 from "./Error404";
 import Account from "./instruments/Account";
 import About from "./About/about";
+import Biblio from "./About/bibliography";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/about" element={<About />} />
+        <Route path="/bibliography" element={<Biblio />} />
         <Route path="*" element={<Error404 />} />
       </Route>
     </Routes>

@@ -27,15 +27,15 @@ export default function Register() {
       <h2>Register for an account</h2>
       <form action={onRegister}>
         <label>
-          Username
+          Username:
           <input type="text" name="username" />
         </label>
         <label>
-          Email
+          Email:
           <input type="text" name="email" />
         </label>
         <label>
-          Password
+          Password:
           <input type="password" name="password" required />
         </label>
         <button>Register</button>
