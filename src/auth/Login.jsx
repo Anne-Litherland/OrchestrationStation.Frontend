@@ -26,11 +26,11 @@ export default function Login() {
       <h2>Log in to your account</h2>
       <form action={onLogin}>
         <label>
-          Username
+          Username:
           <input type="username" name="username" required />
         </label>
         <label>
-          Password
+          Password:
           <input type="password" name="password" required />
         </label>
         <button>Login</button>

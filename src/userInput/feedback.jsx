@@ -24,9 +24,10 @@ export default function Feedback() {
         Username
         <input type="text" name="username" required />
       </label>
+      <br></br>
       <label>
         Message
-        <input type="text" name="message" id="textbox" required />
+        <textarea type="text" name="message" id="textbox" required />
       </label>
       <button type="submit">Submit</button>
       {error && <output>{error}</output>}
