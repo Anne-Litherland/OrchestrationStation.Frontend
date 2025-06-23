@@ -36,22 +36,6 @@ export default function About() {
         <h4>Ali Samadi</h4>
         <p>----------</p>
       </section>
-      <img
-        src="/photos/onemanband.jpg"
-        alt="smiley face instrument"
-        id="img1"
-      />
-      <img src="/photos/otamatone.webp" alt="one man band" id="img2" />
-      <img
-        src="/photos/funny-musical-instruments-predicaments-657180b326844__700.jpg"
-        alt="skeleton cello"
-        id="img3"
-      />
-      <img
-        src="/photos/a98118_4972437_12neckguitar2.jpg"
-        alt="mega-guitar"
-        id="img4"
-      />
       {token ? (
         <Feedback />
       ) : (
