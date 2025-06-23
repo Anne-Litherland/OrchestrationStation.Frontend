@@ -11,7 +11,7 @@ export default function BibliographyOnSiteList() {
   if (error) return <p>Sorry! {error}</p>;
 
   const onSite = bibliography.filter(
-    (source) => source.category == "Used on site"
+    (source) => source.category === "Used on site"
   );
 
   return (

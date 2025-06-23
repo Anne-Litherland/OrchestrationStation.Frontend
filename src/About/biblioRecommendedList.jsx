@@ -11,7 +11,7 @@ export default function BibliographyRecommendedList() {
   if (error) return <p>Sorry! {error}</p>;
 
   const recommended = bibliography.filter(
-    (source) => source.category == "Recommended"
+    (source) => source.category === "Recommended"
   );
 
   return (
