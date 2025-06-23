@@ -1,6 +1,6 @@
 import useQuery from "../api/useQuery";
 
-export function BibliographyRecommendedList() {
+export default function BibliographyRecommendedList() {
   const {
     data: bibliography,
     loading,

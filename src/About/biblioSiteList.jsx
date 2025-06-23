@@ -1,6 +1,6 @@
 import useQuery from "../api/useQuery";
 
-export function BibliographyOnSiteList() {
+export default function BibliographyOnSiteList() {
   const {
     data: bibliography,
     loading,
