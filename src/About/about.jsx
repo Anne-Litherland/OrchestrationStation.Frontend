@@ -36,6 +36,11 @@ export default function About() {
         <h4>Ali Samadi</h4>
         <p>----------</p>
       </section>
+      <img src="src/assets/neckGuitar.jpg" alt="Multi-guitar" id="img1" />
+      <img src="src/assets/onemanband.jpg" alt="One Man Band" id="img2" />
+      <img src="src/assets/skeletonCello.jpg" alt="Skeleton Cello" id="img3" />
+      <img src="src/assets/otamatone.webp" alt="Otamatone" id="img4" />
+
       {token ? (
         <Feedback />
       ) : (
