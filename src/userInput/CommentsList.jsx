@@ -5,6 +5,7 @@ import { useAuth } from "../auth/AuthContext";
 import { useParams } from "react-router";
 
 export default function CommentsList({ id }) {
+  //gets comments for that instrument
   const params = useParams();
   const {
     data: comments,
@@ -13,6 +14,7 @@ export default function CommentsList({ id }) {
   } = useQuery(`/comments/${id}`, "comments");
   const { token, userId } = useAuth();
 
+  //
   const onComment = async (formData) => {
     const content = formData.get("comment");
     const category = formData.get("category");
@@ -23,7 +25,7 @@ export default function CommentsList({ id }) {
       await postComment({ user_id, category, content, instrument_id });
     } catch (e) {}
   };
-
+  //returns comments list if there are comments, if not returns statement. If user is logged in, comment box is also returned
   return (
     <>
       <h3>Comments</h3>
@@ -52,7 +54,7 @@ export default function CommentsList({ id }) {
     </>
   );
 }
-
+// single comment returns user_id, catergory, time/date created, and content
 function Comment({ comment }) {
   return (
     <li className="comment">
@@ -64,6 +66,7 @@ function Comment({ comment }) {
   );
 }
 
+// fetches array of comments and posts new comment
 async function postComment(commentData) {
   const response = await fetch(API + "/comments/" + commentData.instrument_id, {
     method: "POST",

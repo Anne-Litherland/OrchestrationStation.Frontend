@@ -34,7 +34,17 @@ export default function About() {
           Providence.
         </p>
         <h4>Ali Samadi</h4>
-        <p>----------</p>
+        <p>
+          Ali Samadi is a materials science engineer and, by the end of June
+          2025, a full-stack web developer with a strong background in
+          commercial and industrial products and international trade. Born and
+          raised in Iran, he developed a passion for technology and
+          problem-solving early on. After completing Fullstack Academy's web
+          development program, he expanded his skillset to build modern web
+          applications, including Orchestration Station. His favorite instrument
+          is the violin. Ali now lives in Oklahoma City and enjoys hiking,
+          playing, soccer with friends, and exploring nature in his free time.
+        </p>
       </section>
       <img src="/images/neckGuitar.jpg" alt="Multi-guitar" id="img1" />
       <img src="/images/onemanband.jpg" alt="One Man Band" id="img2" />
