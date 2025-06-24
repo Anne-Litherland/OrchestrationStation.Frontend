@@ -41,11 +41,6 @@ export default function About() {
       <img src="/images/skeletonCello.jpg" alt="Skeleton Cello" id="img3" />
       <img src="/images/otamatone.webp" alt="Otamatone" id="img4" />
       <Feedback />
-      <footer>
-        <Link to="/register" id="link">
-          Sign up to send us a message!
-        </Link>
-      </footer>
     </main>
   );
 }

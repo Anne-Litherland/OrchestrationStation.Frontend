@@ -161,17 +161,6 @@ img {
   grid-row: 2 / 3;
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  text-align: center;
-  width: 100%;
-  background-color: #ddd;
-  color: #ddd;
-  height: 25px;
-}
-
 h2 {
   text-align: center;
 }
