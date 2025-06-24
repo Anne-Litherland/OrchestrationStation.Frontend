@@ -1,11 +1,13 @@
+import { useParams } from "react-router";
 import useQuery from "../api/useQuery";
 
 export default function BibliographyOnSiteList() {
+  const params = useParams();
   const {
     data: bibliography,
     loading,
     error,
-  } = useQuery("/bibliography", bibliography);
+  } = useQuery(`/bibliography/${params.id}`, bibliography);
 
   if (loading || !bibliography) return <p>Loading...</p>;
   if (error) return <p>Sorry! {error}</p>;
