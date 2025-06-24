@@ -22,7 +22,14 @@ export default function About() {
           University with a focus on biology and health sciences.
         </p>
         <h4>Fred Clark</h4>
-        <p>----------</p>
+        <p>Fred possesses a passion for music, education, and technology. 
+          Primarily performing on trombone and guitar, he also plays various other instruments 
+          and enjoys incorporating diverse musical interests into his performances. 
+          Additionally, he is a budding programmer, solving problems with code and creating 
+          innovative solutions. Driven by curiosity and a desire to learn, he constantly 
+          explores new hobbies and expands his skills and perspectives. 
+          Current obsessions: game design and knitting.
+</p>
         <h4>Matt Weber</h4>
         <p>
           Matt Weber is a math and language arts educator, musician (piano /
