@@ -40,16 +40,12 @@ export default function About() {
       <img src="/assets/onemanband.jpg" alt="One Man Band" id="img2" />
       <img src="/assets/skeletonCello.jpg" alt="Skeleton Cello" id="img3" />
       <img src="/assets/otamatone.webp" alt="Otamatone" id="img4" />
-
-      {token ? (
-        <Feedback />
-      ) : (
-        <footer>
-          <Link to="/register" id="link">
-            Sign up to send us a message!
-          </Link>
-        </footer>
-      )}
+      <Feedback />
+      <footer>
+        <Link to="/register" id="link">
+          Sign up to send us a message!
+        </Link>
+      </footer>
     </main>
   );
 }
