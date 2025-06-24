@@ -5,7 +5,7 @@ export default function BibliographyOnSiteList() {
     data: bibliography,
     loading,
     error,
-  } = useQuery("/bibliography", bibliography);
+  } = useQuery("/bibliography", "bibliography");
 
   if (loading || !bibliography) return <p>Loading...</p>;
   if (error) return <p>Sorry! {error}</p>;
