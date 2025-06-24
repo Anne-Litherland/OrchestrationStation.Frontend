@@ -42,7 +42,7 @@ export default function InstrumentDetail() {
           <AddToFavorite instrumentId={instrumentData?.id} />
         </section>
       )}
-      <section>
+      <section className="comments">
         <CommentsList id={id}></CommentsList>
       </section>
     </>
