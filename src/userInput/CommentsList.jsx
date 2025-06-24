@@ -1,12 +1,33 @@
 import useQuery from "../api/useQuery";
 
-export default function CommentsList() {
-  const { loading, error } = useQuery();
-  const comments = [];
+import { API } from "../api/ApiContext";
+import { useAuth } from "../auth/AuthContext";
+import { useParams } from "react-router";
+
+export default function CommentsList({ id }) {
+  const params = useParams();
+  const {
+    data: comments,
+    loading,
+    error,
+  } = useQuery(`/comments/${id}`, "comments");
+  const { token, userId } = useAuth();
+
+  const onComment = async (formData) => {
+    const content = formData.get("comment");
+    const category = formData.get("category");
+    const instrument_id = id;
+    const user_id = userId;
+
+    try {
+      await postComment({ user_id, category, content, instrument_id });
+    } catch (e) {}
+  };
+
   return (
     <>
       <h3>Comments</h3>
-      {comments.length > 0 ? (
+      {comments?.length > 0 ? (
         <ul className="comments">
           {comments.map((comment) => (
             <Comment key={comment.id} comment={comment} />
@@ -15,13 +36,19 @@ export default function CommentsList() {
       ) : (
         <p>Be the first to leave a comment!</p>
       )}
-      <form>
-        <label>
-          <textarea type="text" name="comment" id="comment-box" />
-        </label>
-        <button type="submit">Send</button>
-        {error && <output>{error}</output>}
-      </form>
+      {token && (
+        <form action={onComment}>
+          <label>
+            <select name="category">
+              <option>General</option>
+              <option>Suggestion</option>
+            </select>
+            <textarea type="text" name="comment" id="comment-box" />
+          </label>
+          <button type="submit">Send</button>
+          {error && <output>{error}</output>}
+        </form>
+      )}
     </>
   );
 }
@@ -35,4 +62,14 @@ function Comment({ comment }) {
       <p>{comment.content}</p>
     </li>
   );
+}
+
+async function postComment(commentData) {
+  const response = await fetch(API + "/comments/" + commentData.instrument_id, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(commentData),
+  });
+  const result = await response.text();
+  if (!response.ok) throw Error(result);
 }

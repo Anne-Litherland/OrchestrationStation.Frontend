@@ -36,10 +36,10 @@ export default function About() {
         <h4>Ali Samadi</h4>
         <p>----------</p>
       </section>
-      <img src="/assets/neckGuitar.jpg" alt="Multi-guitar" id="img1" />
-      <img src="/assets/onemanband.jpg" alt="One Man Band" id="img2" />
-      <img src="/assets/skeletonCello.jpg" alt="Skeleton Cello" id="img3" />
-      <img src="/assets/otamatone.webp" alt="Otamatone" id="img4" />
+      <img src="/images/neckGuitar.jpg" alt="Multi-guitar" id="img1" />
+      <img src="/images/onemanband.jpg" alt="One Man Band" id="img2" />
+      <img src="/images/skeletonCello.jpg" alt="Skeleton Cello" id="img3" />
+      <img src="/images/otamatone.webp" alt="Otamatone" id="img4" />
       <Feedback />
       <footer>
         <Link to="/register" id="link">

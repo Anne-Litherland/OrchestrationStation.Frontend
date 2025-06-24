@@ -6,10 +6,12 @@ const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [token, setToken] = useState(sessionStorage.getItem("token"));
+  const [userId, setUserId] = useState(sessionStorage.getItem("userId"));
 
   useEffect(() => {
     if (token) sessionStorage.setItem("token", token);
-  }, [token]);
+    if (userId) sessionStorage.setItem("userId", userId);
+  }, [token, userId]);
 
   const register = async (credentials) => {
     const response = await fetch(API + "/users/register", {
@@ -19,7 +21,9 @@ export function AuthProvider({ children }) {
     });
     const result = await response.text();
     if (!response.ok) throw Error(result);
-    setToken(result);
+    const resultBody = JSON.parse(result);
+    setToken(resultBody.token);
+    setUserId(resultBody.userId);
   };
 
   const login = async (credentials) => {
@@ -30,7 +34,9 @@ export function AuthProvider({ children }) {
     });
     const result = await response.text();
     if (!response.ok) throw Error(result);
-    setToken(result);
+    const resultBody = JSON.parse(result);
+    setToken(resultBody.token);
+    setUserId(resultBody.userId);
   };
 
   const logout = () => {
@@ -38,7 +44,7 @@ export function AuthProvider({ children }) {
     sessionStorage.removeItem("token");
   };
 
-  const value = { token, register, login, logout };
+  const value = { token, userId, register, login, logout };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 

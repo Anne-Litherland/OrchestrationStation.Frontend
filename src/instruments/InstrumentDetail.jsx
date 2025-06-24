@@ -19,7 +19,7 @@ export default function InstrumentDetail() {
   return (
     <>
       <section className="info">
-        <h1>{instrumentData?.instrument_name || "Unnamed Instrumanet"}</h1>
+        <h1>{instrumentData?.instrument_name || "Unnamed Instrument"}</h1>
         <p>Range: {instrumentData?.range || "Unknown"}</p>
         <p>{instrumentData?.description || "No description available."}</p>
         <figure>
@@ -30,9 +30,12 @@ export default function InstrumentDetail() {
         </figure>
       </section>
       <section className="info">
-        <h1>{instrumentData?.famous_excerpts || "Unnamed Instrumanet"}</h1>
+        <h1>{instrumentData?.famous_excerpts || "No excerpts available."}</h1>
         <p>Famous Musician: {instrumentData?.famous_musicians || "Unknown"}</p>
-        <p>{instrumentData?.history || "No history available."}</p>
+        {instrumentData?.history && (
+          <a href={instrumentData.history}>History</a>
+        )}
+        {!instrumentData?.history && "No history available."}
       </section>
       {token && (
         <section className="button">
@@ -40,7 +43,7 @@ export default function InstrumentDetail() {
         </section>
       )}
       <section>
-        <CommentsList></CommentsList>
+        <CommentsList id={id}></CommentsList>
       </section>
     </>
   );
