@@ -14,7 +14,7 @@ export default function InstrumentDetail() {
     loading: queryLoading,
   } = useQuery(`/instruments/${id}`, ["instrument"]);
 
-  if (queryLoading) return <p>Loading instrumentdata...</p>;
+  if (queryLoading) return <p>Loading instrument data...</p>;
   if (queryError) return <p>Error: {queryError}</p>;
   return (
     <>
@@ -30,8 +30,8 @@ export default function InstrumentDetail() {
         </figure>
       </section>
       <section className="info">
-        <h1>{instrumentData?.famous_excerpts || "No excerpts available."}</h1>
-        <p>Famous Musician: {instrumentData?.famous_musicians || "Unknown"}</p>
+        <h1>{instrumentData?.excerpts || "No excerpts available."}</h1>
+        <p>Famous Musicians: {instrumentData?.musicians || "Unknown"}</p>
         {instrumentData?.history && (
           <a href={instrumentData.history}>History</a>
         )}
