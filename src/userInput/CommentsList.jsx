@@ -29,28 +29,30 @@ export default function CommentsList({ id }) {
   return (
     <>
       <h3>Comments</h3>
-      {comments?.length > 0 ? (
-        <ul className="comments">
-          {comments.map((comment) => (
-            <Comment key={comment.id} comment={comment} />
-          ))}
-        </ul>
-      ) : (
-        <p>Be the first to leave a comment!</p>
-      )}
-      {token && (
-        <form action={onComment}>
-          <label>
-            <select name="category">
-              <option>General</option>
-              <option>Suggestion</option>
-            </select>
-            <textarea type="text" name="comment" id="comment-box" />
-          </label>
-          <button type="submit">Send</button>
-          {error && <output>{error}</output>}
-        </form>
-      )}
+      <div className="comment-box">
+        {comments?.length > 0 ? (
+          <ul className="comments-list">
+            {comments.map((comment) => (
+              <Comment key={comment.id} comment={comment} />
+            ))}
+          </ul>
+        ) : (
+          <p>Be the first to leave a comment!</p>
+        )}
+        {token && (
+          <form action={onComment}>
+            <label>
+              <select name="category">
+                <option>General</option>
+                <option>Suggestion</option>
+              </select>
+              <textarea type="text" name="comment" id="comment-box" />
+            </label>
+            <button type="submit">Send</button>
+            {error && <output>{error}</output>}
+          </form>
+        )}
+      </div>
     </>
   );
 }

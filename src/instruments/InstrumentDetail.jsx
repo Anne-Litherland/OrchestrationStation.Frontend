@@ -30,8 +30,36 @@ export default function InstrumentDetail() {
         </figure>
       </section>
       <section className="info">
-        <h1>{instrumentData?.famous_excerpts || "No excerpts available."}</h1>
-        <p>Famous Musician: {instrumentData?.famous_musicians || "Unknown"}</p>
+        <h2>Famous Excerpts</h2>
+        {instrumentData?.excerpts.length > 0 ? (
+          <ul>
+            {instrumentData.excerpts.map((ex, idx) => (
+              <li key={idx}>
+                <a href={ex.famous_excerpts_url}>{ex.famous_excerpts}</a>{" "}
+                <a href={ex.score_url}>(Score)</a>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>No excerpts available.</p>
+        )}
+      </section>
+      <section className="info">
+        <h2>Famous Musicians</h2>
+        {instrumentData?.musicians.length > 0 ? (
+          <ul>
+            {instrumentData.musicians.map((m, idx) => (
+              <li key={idx}>
+                <a href={m.famous_musicians_url}>{m.famous_musicians}</a>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>No famous musicians available.</p>
+        )}
+      </section>
+      <section className="info">
+        <h2>History</h2>
         {instrumentData?.history && (
           <a href={instrumentData.history}>History</a>
         )}
@@ -42,7 +70,7 @@ export default function InstrumentDetail() {
           <AddToFavorite instrumentId={instrumentData?.id} />
         </section>
       )}
-      <section>
+      <section className="comments">
         <CommentsList id={id}></CommentsList>
       </section>
     </>
