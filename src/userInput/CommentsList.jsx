@@ -19,10 +19,17 @@ export default function CommentsList({ id }) {
     const content = formData.get("comment");
     const category = formData.get("category");
     const instrument_id = id;
+    const username = username;
     const user_id = userId;
 
     try {
-      await postComment({ user_id, category, content, instrument_id });
+      await postComment({
+        user_id,
+        username,
+        category,
+        content,
+        instrument_id,
+      });
     } catch (e) {}
   };
   //returns comments list if there are comments, if not returns statement. If user is logged in, comment box is also returned
@@ -40,9 +47,9 @@ export default function CommentsList({ id }) {
           <p>Be the first to leave a comment!</p>
         )}
         {token && (
-          <form action={onComment}>
+          <form action={onComment} id="comments">
             <label>
-              <select name="category">
+              <select name="category" className="menu">
                 <option>General</option>
                 <option>Suggestion</option>
               </select>
@@ -56,11 +63,11 @@ export default function CommentsList({ id }) {
     </>
   );
 }
-// single comment returns user_id, catergory, time/date created, and content
+// single comment returns username, catergory, time/date created, and content
 function Comment({ comment }) {
   return (
     <li className="comment">
-      <p>{comment.user_id}</p>
+      <p>{comment.username}</p>
       <p>{comment.category}</p>
       <p>{comment.created_at}</p>
       <p>{comment.content}</p>

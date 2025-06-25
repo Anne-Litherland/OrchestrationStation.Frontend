@@ -21,9 +21,9 @@ export default function Feedback() {
   return (
     <>
       {token && (
-        <form onSubmit={handleSubmit}>
-          <label>
-            Message
+        <form onSubmit={handleSubmit} id="feedback">
+          <label className="message">
+            Leave us a message!
             <textarea type="text" name="content" id="textbox" required />
           </label>
           <button type="submit">Submit</button>
