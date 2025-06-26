@@ -18,58 +18,68 @@ export default function InstrumentDetail() {
   if (queryError) return <p>Error: {queryError}</p>;
   return (
     <>
-      <section className="info">
-        <h1>{instrumentData?.instrument_name || "Unnamed Instrument"}</h1>
-        <p>Range: {instrumentData?.range || "Unknown"}</p>
-        <p>{instrumentData?.description || "No description available."}</p>
-        <figure>
-          <img
-            src={instrumentData?.image_url}
-            alt={instrumentData?.instrument_name}
-          />
-        </figure>
-      </section>
-      <section className="info">
-        <h2>Famous Excerpts</h2>
-        {instrumentData?.excerpts.length > 0 ? (
-          <ul>
-            {instrumentData.excerpts.map((ex, idx) => (
-              <li key={idx}>
-                <a href={ex.famous_excerpts_url}>{ex.famous_excerpts}</a>{" "}
-                <a href={ex.score_url}>(Score)</a>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>No excerpts available.</p>
-        )}
-      </section>
-      <section className="info">
-        <h2>Famous Musicians</h2>
-        {instrumentData?.musicians.length > 0 ? (
-          <ul>
-            {instrumentData.musicians.map((m, idx) => (
-              <li key={idx}>
-                <a href={m.famous_musicians_url}>{m.famous_musicians}</a>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>No famous musicians available.</p>
-        )}
-      </section>
-      <section className="info">
-        <h2>History</h2>
-        {instrumentData?.history && (
-          <a href={instrumentData.history}>History</a>
-        )}
-        {!instrumentData?.history && "No history available."}
-      </section>
-      {token && (
-        <section className="button">
-          <AddToFavorite instrumentId={instrumentData?.id} />
+      <main id="details">
+        <section className="info">
+          <h1>{instrumentData?.instrument_name || "Unnamed Instrument"}</h1>
+          <p>Range: {instrumentData?.range || "Unknown"}</p>
+          <p>{instrumentData?.description || "No description available."}</p>
+          <figure>
+            <img
+              src={instrumentData?.image_url}
+              alt={instrumentData?.instrument_name}
+            />
+          </figure>
         </section>
-      )}
+        <section className="info">
+          <h2>Famous Excerpts</h2>
+          {instrumentData?.excerpts.length > 0 ? (
+            <ul>
+              {instrumentData.excerpts.map((ex, idx) => (
+                <li key={idx}>
+                  <a href={ex.famous_excerpts} id="link">
+                    {ex.famous_excerpts}
+                  </a>{" "}
+                  <a href={ex.score_url} id="link">
+                    (Score)
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>No excerpts available.</p>
+          )}
+        </section>
+        <section className="info">
+          <h2>Famous Musicians</h2>
+          {instrumentData?.musicians.length > 0 ? (
+            <ul>
+              {instrumentData.musicians.map((m, idx) => (
+                <li key={idx}>
+                  <a href={m.famous_musicians_url} id="link">
+                    {m.famous_musicians}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>No famous musicians available.</p>
+          )}
+        </section>
+        <section className="info">
+          <h2>History</h2>
+          {instrumentData?.history && (
+            <a href={instrumentData.history} id="link">
+              History
+            </a>
+          )}
+          {!instrumentData?.history && "No history available."}
+        </section>
+        {token && (
+          <section className="button">
+            <AddToFavorite instrumentId={instrumentData?.id} />
+          </section>
+        )}
+      </main>
       <section className="comments">
         <CommentsList id={id}></CommentsList>
       </section>

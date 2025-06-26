@@ -5,6 +5,8 @@ import { useAuth } from "../auth/AuthContext";
 import { useParams } from "react-router";
 
 export default function CommentsList({ id }) {
+  const { token, userId } = useAuth();
+
   //gets comments for that instrument
   const params = useParams();
   const {
@@ -12,7 +14,6 @@ export default function CommentsList({ id }) {
     loading,
     error,
   } = useQuery(`/comments/${id}`, "comments");
-  const { token, userId } = useAuth();
 
   //
   const onComment = async (formData) => {
@@ -22,31 +23,41 @@ export default function CommentsList({ id }) {
     const user_id = userId;
 
     try {
-      await postComment({ user_id, category, content, instrument_id });
-    } catch (e) {}
+      await postComment({
+        user_id,
+        category,
+        content,
+        instrument_id,
+      });
+    } catch (e) {
+      error(e.error);
+    }
   };
+
   //returns comments list if there are comments, if not returns statement. If user is logged in, comment box is also returned
   return (
     <>
       <h3>Comments</h3>
-      <div className="comment-box">
-        {comments?.length > 0 ? (
-          <ul className="comments-list">
-            {comments.map((comment) => (
-              <Comment key={comment.id} comment={comment} />
-            ))}
-          </ul>
-        ) : (
-          <p>Be the first to leave a comment!</p>
-        )}
+      <div>
+        <section id="comment-section">
+          {comments?.length > 0 ? (
+            <ul>
+              {comments.map((comment) => (
+                <Comment key={comment.id} comment={comment} />
+              ))}
+            </ul>
+          ) : (
+            <p>Be the first to leave a comment!</p>
+          )}
+        </section>
         {token && (
-          <form action={onComment}>
+          <form action={onComment} id="comment-box">
             <label>
               <select name="category">
                 <option>General</option>
                 <option>Suggestion</option>
               </select>
-              <textarea type="text" name="comment" id="comment-box" />
+              <textarea type="text" name="comment" id="comment-textbox" />
             </label>
             <button type="submit">Send</button>
             {error && <output>{error}</output>}
@@ -56,15 +67,16 @@ export default function CommentsList({ id }) {
     </>
   );
 }
-// single comment returns user_id, catergory, time/date created, and content
+// single comment returns username, catergory, time/date created, and content
 function Comment({ comment }) {
   return (
-    <li className="comment">
-      <p>{comment.user_id}</p>
-      <p>{comment.category}</p>
-      <p>{comment.created_at}</p>
-      <p>{comment.content}</p>
-    </li>
+    <section className="comment">
+      <li>
+        <p id="category">{comment.category}</p>
+        <p>{comment.created_at}</p>
+        <p>{comment.content}</p>
+      </li>
+    </section>
   );
 }
 

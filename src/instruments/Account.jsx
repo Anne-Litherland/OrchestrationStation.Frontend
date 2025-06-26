@@ -13,25 +13,25 @@ export default function Account() {
   return (
     <>
       <h1>Welcome, {userData.username}!</h1>
-      <p>Your email on file with us is {userData.username}.</p>
+      <p>Your email on file with us is {userData.email}.</p>
       <h2>Your favorites</h2>
       {isFavorite ? (
         <ul>
           {userData.favorites.map((instrument) => (
             <li key={instrument.id}>
               <strong>{instrument.instrument_name}</strong>
-                <img
-                  src={instrument.image_url}
-                  alt={instrument.instrument_name}
-                ></img>
+              <img
+                src={instrument.image_url}
+                alt={instrument.instrument_name}
+              ></img>
               <Return id={instrument.id} />
             </li>
           ))}
         </ul>
       ) : (
         <p>
-          You have not become interested in any musical instrument yet. Browse
-          our <Link to="/instruments">catalog!</Link>
+          You have not favorited any musical instruments yet. Browse our{" "}
+          <Link to="/instruments">catalog!</Link>
         </p>
       )}
     </>
