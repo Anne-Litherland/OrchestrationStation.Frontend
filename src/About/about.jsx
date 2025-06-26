@@ -16,14 +16,14 @@ export default function About() {
         </p>
         <h3 className="about-title">About the Developers</h3>
         <h4 className="about-developer">Anne Litherland</h4>
-          <p>
+          <p className="about-developer-description">
             Annie is a certified nursing assistant with an interest in music,
             movies, and web development. Her favorite instrument is the violin and
             she has played violin since 2011. She attended Cleveland State
             University with a focus on biology and health sciences.
           </p>
         <h4 className="about-developer">Fred Clark</h4>
-          <p>Fred possesses a passion for music, education, and technology. 
+          <p className="about-developer-description">Fred possesses a passion for music, education, and technology. 
             Primarily performing on trombone and guitar, he also plays various other instruments 
             and enjoys incorporating diverse musical interests into his performances. 
             Additionally, he is a budding programmer, solving problems with code and creating 
@@ -32,7 +32,7 @@ export default function About() {
             Current obsessions: game design and knitting.
           </p>
         <h4 className="about-developer">Matt Weber</h4>
-          <p>
+          <p className="about-developer-description">
             Matt Weber is a math and language arts educator, musician (piano /
             voice / composition / songwriting), and, as of the end of 2024, a
             coder and web developer. His favorite instruments are the piano, alto
@@ -42,7 +42,7 @@ export default function About() {
             Providence.
           </p>
         <h4 className="about-developer">Ali Samadi</h4>
-          <p>
+          <p className="about-developer-description">
             Ali Samadi is a materials science engineer and, by the end of June
             2025, a full-stack web developer with a strong background in
             commercial and industrial products and international trade. Born and

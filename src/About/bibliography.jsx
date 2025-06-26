@@ -4,13 +4,13 @@ import BibliographyRecommendedList from "./biblioRecommendedList";
 export default function Biblio() {
   return (
     <main>
-      <h1>Bibliography</h1>
-      <section>
-        <h2>Sources Used on this Site</h2>
+      <h1 className="bibliography-heading">Bibliography</h1>
+      <section className="bibliography-section">
+        <h2 className="sources-title">Sources Used on this Site</h2>
         <BibliographyOnSiteList />
       </section>
-      <section>
-        <h2>Recommendations for Further Learning</h2>
+      <section className="recommendations-section">
+        <h2 className="recommendations-title">Recommendations for Further Learning</h2>
         <BibliographyRecommendedList />
       </section>
       <img
