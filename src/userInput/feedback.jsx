@@ -22,11 +22,13 @@ export default function Feedback() {
     <>
       {token && (
         <form onSubmit={handleSubmit} id="feedback">
-          <label className="message">
-            Leave us a message!
+          <label>
+            <p id="message">Leave us a message!</p>
             <textarea type="text" name="content" id="textbox" required />
           </label>
-          <button type="submit">Submit</button>
+          <button type="submit" id="feedbackSub">
+            Submit
+          </button>
           {message && <output>{message}</output>}
         </form>
       )}
