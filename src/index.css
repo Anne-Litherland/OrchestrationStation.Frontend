@@ -145,6 +145,8 @@ form {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   padding-left: 10ch;
+  max-width: 125ch;
+  margin: 0 auto;;
 }
 
 section {
@@ -158,6 +160,7 @@ img {
   width: 15ch;
   height: 18ch;
   border-radius: 10%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 #about > img {

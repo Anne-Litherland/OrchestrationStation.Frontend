@@ -2,26 +2,27 @@ import Feedback from "../userInput/feedback";
 import { useAuth } from "../auth/AuthContext";
 import { Link } from "react-router";
 
+
 export default function About() {
   const { token } = useAuth();
   return (
     <main id="about">
-      <section>
-        <h2>About Orchestration Station</h2>
-        <p>
+      <section className="about-section">
+        <h2 className="about-heading">About Orchestration Station</h2>
+        <p className="about-description">
           Orchestration Station is an interactive web app that allows users to
           make profiles, save their favorite instruments and interact with other
           musicians. Any scores that can be found here are freely available.
         </p>
-        <h3>About the Developers</h3>
-        <h4>Anne Litherland</h4>
+        <h3 className="about-title">About the Developers</h3>
+        <h4 className="about-developer">Anne Litherland</h4>
         <p>
           Annie is a certified nursing assistant with an interest in music,
           movies, and web development. Her favorite instrument is the violin and
           she has played violin since 2011. She attended Cleveland State
           University with a focus on biology and health sciences.
         </p>
-        <h4>Fred Clark</h4>
+        <h4 className="about-developer">Fred Clark</h4>
         <p>Fred possesses a passion for music, education, and technology. 
           Primarily performing on trombone and guitar, he also plays various other instruments 
           and enjoys incorporating diverse musical interests into his performances. 
@@ -30,7 +31,7 @@ export default function About() {
           explores new hobbies and expands his skills and perspectives. 
           Current obsessions: game design and knitting.
 </p>
-        <h4>Matt Weber</h4>
+        <h4 className="about-developer">Matt Weber</h4>
         <p>
           Matt Weber is a math and language arts educator, musician (piano /
           voice / composition / songwriting), and, as of the end of 2024, a
@@ -40,7 +41,7 @@ export default function About() {
           previously resided in Boston, Princeton, New York City, and
           Providence.
         </p>
-        <h4>Ali Samadi</h4>
+        <h4 className="about-developer">Ali Samadi</h4>
         <p>
           Ali Samadi is a materials science engineer and, by the end of June
           2025, a full-stack web developer with a strong background in
